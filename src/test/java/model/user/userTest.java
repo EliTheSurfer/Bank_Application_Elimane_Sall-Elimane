@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class userTest {
 	
-	private user currentUser;
+	private user currentUser = new user();
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -21,14 +21,15 @@ public class userTest {
 	@Test
 	public void testSetFirstname() throws Exception {
 		currentUser.setFirstname("Francois");
-		assertSame("The Firstname Getter/setter or getter don't work !!!", currentUser.getFirstname(),"Francois");
+		System.out.println(currentUser.getFirstname());
+		assertSame("The Firstname Getter/setter don't work !!!", currentUser.getFirstname(),"Francois");
 
 	}
 
 	@Test
 	public void testSetLastname() throws Exception {
 		currentUser.setLastname("Dupond");
-		assertSame("The lastname Getter/setter or getter don't work !!!", currentUser.getLastname(),"Dupond");
+		assertSame("The lastname Getter/setter don't work !!!", currentUser.getLastname(),"Dupond");
 
 	}
 
@@ -36,27 +37,27 @@ public class userTest {
 	@Test
 	public void testSetAge() throws Exception {
 		currentUser.setAge(20);
-		assertSame("The age Getter/setter or getter don't work !!!", currentUser.getAge(),20);
+		assertSame("The age Getter/setter don't work !!!", currentUser.getAge(),20);
 
 	}
 
 
 	@Test
 	public void testSetAdress() throws Exception {
-		currentUser.setFirstname("20 rue des colombes, Paris, 75016");
-		assertSame("The adress Getter/setter or getter don't work !!!", currentUser.getAdress(),"20 rue des colombes, Paris, 75016");
+		currentUser.setAdress("20 rue des colombes, Paris, 75016");
+		assertSame("The adress Getter/setter don't work !!!", currentUser.getAdress(),"20 rue des colombes, Paris, 75016");
 	}
 
 	@Test
 	public void testSetPhonenumber() throws Exception {
-		currentUser.setPhonenumber("+33654238765");
-		assertSame("The phone number Getter/setter or getter don't work !!!", currentUser.getPhonenumber(),"+33654238765");
+		currentUser.setPhonenumber("+ 33 6 54 23 87 65");
+		assertSame("The phone number Getter/setter don't work !!!", currentUser.getPhonenumber(),"+ 33 6 54 23 87 65");
 	}
 
 	@Test
 	public void testSetEmail() throws Exception {
 		currentUser.setEmail("jon.snow@gmail.com");
-		assertSame("The email Getter/setter or getter don't work !!!", currentUser.getEmail(),"+jon.snow@gmail.com");	
+		assertSame("The email Getter/setterdon't work !!!", currentUser.getEmail(),"jon.snow@gmail.com");	
 	}
 
 }
