@@ -142,7 +142,13 @@ public class user {
 	 * @param email
 	 */
 	public user(Long id, String firstname, String lastname, int age,String address, String phonenumber, String email) {
-		
+		this.id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.age = age;
+		this.address = address;
+		this.phonenumber = phonenumber;
+		this.email = email;
 	}
 	
 	/**
