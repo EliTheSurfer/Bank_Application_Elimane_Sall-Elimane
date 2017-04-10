@@ -19,12 +19,12 @@ public class UserBuilderTest {
 
 	@Test(expected=IllegalArgumentException.class)
 	public void testBuildUnderage() throws Exception {
-		final user BillGates = UserBuilder.createDefaultUser().withAge(17).build();	
+		UserBuilder.createDefaultUser().withAge(17).build();	
 	}
 
 	@Test(expected=IllegalArgumentException.class)
 	public void testBuildOverage() throws Exception {
-		final user BillGates = UserBuilder.createDefaultUser().withAge(141).build();	
+		UserBuilder.createDefaultUser().withAge(141).build();	
 	}
 
 	@Test
