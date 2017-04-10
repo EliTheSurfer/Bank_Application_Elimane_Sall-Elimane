@@ -25,6 +25,7 @@ public class user {
 	 * Definition of setters and getters
 	 */
 	
+	
 	/**
 	 * Set the id of the current user
 	 * @param Long id
@@ -127,6 +128,27 @@ public class user {
 	 */
 	public String getEmail(){
 		return this.email;
+	}
+	
+	
+	/**
+	 * Complete constructor
+	 * @param id
+	 * @param firstname
+	 * @param lastname
+	 * @param age
+	 * @param address
+	 * @param phonenumber
+	 * @param email
+	 */
+	public user(Long id, String firstname, String lastname, int age,String address, String phonenumber, String email) {
+		
+	}
+	
+	/**
+	 * Default constructor
+	 */
+	public user() {
 	}
 
 

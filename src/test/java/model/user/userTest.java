@@ -1,6 +1,7 @@
 package model.user;
 
 import static org.junit.Assert.*;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -21,7 +22,6 @@ public class userTest {
 	@Test
 	public void testSetFirstname() throws Exception {
 		currentUser.setFirstname("Francois");
-		System.out.println(currentUser.getFirstname());
 		assertSame("The Firstname Getter/setter don't work !!!", currentUser.getFirstname(),"Francois");
 
 	}
@@ -58,6 +58,19 @@ public class userTest {
 	public void testSetEmail() throws Exception {
 		currentUser.setEmail("jon.snow@gmail.com");
 		assertSame("The email Getter/setterdon't work !!!", currentUser.getEmail(),"jon.snow@gmail.com");	
+	}
+
+	@Test
+	public void testUserCompleteBuilder() throws Exception {
+		currentUser =  new user((long)1,"Obiwan","Kenobi",45,"The Bright side of the force, Paris, 75010","+33 0 00 00 00 00", "obiwan.kenobi@mail.com");
+		assertSame("The id complete builder setter doesn't work !!!", currentUser.getId(),(long)1);	
+		assertSame("The firstname complete builder setter doesn't work !!!", currentUser.getFirstname(),"Obiwan");	
+		assertSame("The firstname complete builder setter doesn't work !!!", currentUser.getLastname(),"Kenobi");	
+		assertSame("The age complete builder setter doesn't work !!!", currentUser.getAge(),45);	
+		assertSame("The address complete builder setter doesn't work !!!", currentUser.getAdress(),"The Bright side of the force, Paris, 75010");
+		assertSame("The phone number complete builder setter doesn't work !!!", currentUser.getPhonenumber(),"+33 0 00 00 00 00");
+		assertSame("The email complete builder setter doesn't work !!!", currentUser.getEmail(),"obiwan.kenobi@mail.com");
+
 	}
 
 }
