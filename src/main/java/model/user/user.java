@@ -133,13 +133,13 @@ public class user extends client {
 	
 	/**
 	 * Complete constructor
-	 * @param id
-	 * @param firstname
-	 * @param lastname
-	 * @param age
-	 * @param address
-	 * @param phonenumber
-	 * @param email
+	 * @param Long id
+	 * @param String firstname
+	 * @param String  lastname
+	 * @param int age
+	 * @param String address
+	 * @param String phonenumber
+	 * @param String email
 	 */
 	public user(Long id, String firstname, String lastname, int age,String address, String phonenumber, String email) {
 		user.id = id;
