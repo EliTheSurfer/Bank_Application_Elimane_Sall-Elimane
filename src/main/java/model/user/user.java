@@ -5,7 +5,7 @@ package model.user;
  * 
  * This class is a user model, it defines every informations that we need about one bank user
  */
-public class user {
+public class user extends client {
 
 	/*
 	 * Theses variables below are the user's  informations that we need

@@ -18,7 +18,7 @@ public class account {
 	 * This function  returns the account's id
 	 * @return Long Id
 	 */
-	Long getId()
+	public Long getId()
 	{
 		return this.id;
 	}
@@ -27,7 +27,7 @@ public class account {
 	 * This function allows us to set the account's id
 	 * @param Long id
 	 */
-	void setId(Long id)
+	public void setId(Long id)
 	{
 		this.id = id;
 	}
@@ -36,7 +36,7 @@ public class account {
 	 * This function returns the account owner's id
 	 * @return Long ownerId
 	 */
-	Long getOwnerId()
+	public Long getOwnerId()
 	{
 		return this.ownerId;
 	}
@@ -45,7 +45,7 @@ public class account {
 	 * This function allows us to set owner's id
 	 * @param ownerId
 	 */
-	void setOwnerId(Long ownerId)
+	public void setOwnerId(Long ownerId)
 	{
 		this.ownerId = ownerId ;
 	}
@@ -54,7 +54,7 @@ public class account {
 	 * this function returns the account's balance
 	 * @return double balance
 	 */
-	double getBalance()
+	public double getBalance()
 	{
 		return this.balance;
 	}
@@ -63,7 +63,7 @@ public class account {
 	 * This function allows us to update the balance of an account
 	 * @param double balance
 	 */
-	void setBalance(double balance)
+	public void setBalance(double balance)
 	{
 		this.balance  = balance;
 	}
@@ -72,7 +72,7 @@ public class account {
 	 * This function returns the account's creation date
 	 * @return date creationDate
 	 */
-	Date getCreationDate()
+	public Date getCreationDate()
 	{
 		return this.creationDate;
 	}

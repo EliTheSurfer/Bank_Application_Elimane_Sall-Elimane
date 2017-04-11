@@ -31,6 +31,15 @@ public class UserBuilder {
         return new UserBuilder(); 
     } 
     
+    /**
+     * This function sets a new firstname 
+     * @param firstname
+     * @return
+     */
+    public UserBuilder withId(final Long id) { 
+        this.id = id; 
+        return this; 
+    } 
     
     /**
      * This function sets a new firstname 

@@ -70,4 +70,10 @@ public class UserBuilderTest {
 		assertSame("The default user builder email setter doesn't work !!!", BillGates.getEmail(),"default@mail.com");	
 	}
 
+	@Test
+	public void testWithId() throws Exception {
+		final user BillGates = UserBuilder.createDefaultUser().withId((long)1).build();
+		assertSame("WithId setter doesn't work !!!", BillGates.getId(),(long)1);
+	}
+
 }
