@@ -1,8 +1,7 @@
 package model.account;
 import java.util.Date;
 
-import static org.junit.Assert.assertSame;
-
+import static org.junit.Assert.*;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -32,7 +31,14 @@ public class accountTest {
 		final account BillGatesAccount = new account();
 		double balance = 580000000;
 		BillGatesAccount.setBalance(balance);
-		assertSame("Account balance setter doesn't work !!!", BillGatesAccount.getBalance(),balance);
+		assertEquals(BillGatesAccount.getBalance(),balance,0);
+
+	}
+
+	@Test
+	public void testGetCreationDate() throws Exception {
+		final account BillGatesAccount = new account();
+		assertEquals("Account's creation date isn't correct",BillGatesAccount.getCreationDate(),new Date());
 
 	}
 
