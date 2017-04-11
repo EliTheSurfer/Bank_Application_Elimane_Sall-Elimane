@@ -10,7 +10,7 @@ public class UserBuilder {
 	/**
 	 * Theses are the informations for a default user
 	 */
-	static Long id = null;
+	Long id = null;
 	private String firstname ="DefaultFirstname";
 	private String lastname = "DefaultLastname";
 	private int age = 18;
