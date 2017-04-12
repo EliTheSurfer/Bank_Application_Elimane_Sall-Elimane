@@ -3,6 +3,9 @@ package model.user;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import model.account.*;
 /**
  * 
@@ -12,6 +15,8 @@ import model.account.*;
  */
 public class client {
 	
+	final Logger logger = LoggerFactory.getLogger(client.class);
+
 	public List<account> usersaccounts = new ArrayList<account>();
 	
 	/**
@@ -22,14 +27,17 @@ public class client {
 	public void withdraw(account currentAccount,double withdrawalAmount)
 	{
 		if(usersaccounts.contains(currentAccount)==false){
+			logger.warn("Trying to withdraw money from somebody's else account");
 			throw new IllegalArgumentException("You don't have the rights to do this operation !");
 		}
 		
 		if(withdrawalAmount > currentAccount.getBalance()){
+			logger.warn("Trying to withdraw too much money");
 			throw new IllegalArgumentException("You don't have enough money to do this operation !");
 		}
 		
-		//If there is no problem , the bank allows the withdrawal opertation
+		//If there is no problem with the security check , the bank allows the withdrawal opertation
+		logger.info("Withdrawing " + withdrawalAmount);
 		currentAccount.setBalance(currentAccount.getBalance()-withdrawalAmount);
 	}
 	
@@ -40,10 +48,12 @@ public class client {
 	 */
 	public void deposit(account currentAccount,double depositAmount){
 		if(usersaccounts.contains(currentAccount)==false){
+			logger.warn("Trying to deposit money on somebody else's account");
 			throw new IllegalArgumentException("You don't have the rights to do this operation !");
 		}
 		
 		//If there is no problem with the security control the bank can do the operation
+		logger.info("Desposit : " + depositAmount );
 		currentAccount.setBalance(currentAccount.getBalance()+depositAmount);		
 	}
 	
@@ -54,10 +64,12 @@ public class client {
 	public double balance()
 	{
 		double wealth = 0;
+		logger.info("Calculatin the global balance" );
 		for(int i=0;i<usersaccounts.size();i++)
 		{
 			wealth+= usersaccounts.get(i).getBalance();
 		}
+		logger.info("The global balance is : " + wealth);
 		return wealth;
 	}
 
