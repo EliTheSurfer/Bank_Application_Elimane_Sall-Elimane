@@ -3,7 +3,6 @@ package Bank;
 import static org.junit.Assert.*;
 import model.account.account;
 import model.user.UserBuilder;
-import model.user.client;
 import model.user.user;
 
 import org.junit.BeforeClass;
@@ -15,7 +14,7 @@ public class bankManagementTest {
 	static account dailyLifeAccount = new account();
 	static account anotherHiddenAccount = new account();
 	
-	static user jeromeCahuzac = UserBuilder.createDefaultUser().withId((long)1).withFirstname("Jerome").withLastname("Cahuzac").build();
+	static user jeromeCahuzac = UserBuilder.createDefaultUser().withId((long)5).withFirstname("Jerome").withLastname("Cahuzac").build();
 	static user userTodelete = UserBuilder.createDefaultUser().build();
 	
 	static bankManagement bank = new bankManagement();
@@ -30,8 +29,18 @@ public class bankManagementTest {
 		dailyLifeAccount.setBalance(2000);
 		anotherHiddenAccount.setBalance(3500000);
 		
+		
+		hiddenCaimanIslandAccount.setId((long)10);
+		
 		bank.addUser(jeromeCahuzac);
 		bank.addUser(userTodelete);
+		
+		bank.addAccount(hiddenCaimanIslandAccount);
+		bank.addAccount(anotherHiddenAccount);
+		
+
+		bank.linkAccountToUser(hiddenCaimanIslandAccount, jeromeCahuzac);
+		bank.linkAccountToUser(anotherHiddenAccount, jeromeCahuzac);
 	}
 
 	@Test
@@ -58,5 +67,50 @@ public class bankManagementTest {
 		user ronaldinho = UserBuilder.createDefaultUser().build();
 		bank.readUser(ronaldinho);
 	}
+
+	@Test
+	public void testAddAccount() throws Exception {
+		account wikiLeaksAccount = new account();
+		bank.addAccount(wikiLeaksAccount);
+		assertEquals("The account hadn't been added !",bank.accounts.contains(wikiLeaksAccount),true);  
+
+	}
+
+	@Test(expected=IllegalArgumentException.class)
+	public void testAddExistingAccount() throws Exception {
+		account wikiLeaksAccount = new account();
+		bank.addAccount(wikiLeaksAccount);
+		bank.addAccount(wikiLeaksAccount);
+	}
+
+	@Test
+	public void testDeleteAccount() throws Exception {
+		assertEquals("There is no hidden account !",bank.accounts.contains(anotherHiddenAccount),true);  
+		bank.deleteAccount(anotherHiddenAccount);
+		assertEquals("The hidden account hadn't been deleted !",bank.accounts.contains(anotherHiddenAccount),false);  
+	}
+
+	@Test
+	public void testLinkAccountToUser() throws Exception {
+
+		assertFalse(jeromeCahuzac.usersaccounts.contains(dailyLifeAccount));
+		assertFalse(dailyLifeAccount.getOwnerId()==jeromeCahuzac.getId());
+		
+		bank.linkAccountToUser(dailyLifeAccount, jeromeCahuzac);
+		
+		assertTrue(jeromeCahuzac.usersaccounts.contains(dailyLifeAccount));
+		assertTrue(dailyLifeAccount.getOwnerId()==jeromeCahuzac.getId());
+		
+	}
+
+	@Test(expected=IllegalArgumentException.class)
+	public void testReadAccount() throws Exception {
+		//Trigger an exception
+		bank.readAccount(dailyLifeAccount);
+		//Display Informations
+		bank.readAccount(hiddenCaimanIslandAccount);
+	}
+	
+	
 
 }

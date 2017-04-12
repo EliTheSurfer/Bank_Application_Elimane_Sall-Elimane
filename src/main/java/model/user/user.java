@@ -13,7 +13,7 @@ public class user extends client {
 	 * We define one variable per line in order to have a very readable 
 	 * code ( Craftmanship) 
 	 */
-	static Long id = null;
+	private Long id = null;
 	private String firstname;
 	private String lastname;
 	private int age;
@@ -31,13 +31,13 @@ public class user extends client {
 	 * @param Long id
 	 */
 	public void setId(Long id){
-		user.id = id;
+		this.id = id;
 	}
 	/**
 	 * provide the Id of the current user
 	 */
 	public Long getId(){
-		return user.id;
+		return this.id;
 	}
 	
 	/**
@@ -142,7 +142,7 @@ public class user extends client {
 	 * @param String email
 	 */
 	public user(Long id, String firstname, String lastname, int age,String address, String phonenumber, String email) {
-		user.id = id;
+		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.age = age;
