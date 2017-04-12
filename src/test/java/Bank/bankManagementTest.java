@@ -105,10 +105,11 @@ public class bankManagementTest {
 
 	@Test(expected=IllegalArgumentException.class)
 	public void testReadAccount() throws Exception {
-		//Trigger an exception
-		bank.readAccount(dailyLifeAccount);
 		//Display Informations
 		bank.readAccount(hiddenCaimanIslandAccount);
+		//Trigger an exception
+		bank.readAccount(dailyLifeAccount);
+		
 	}
 	
 	
