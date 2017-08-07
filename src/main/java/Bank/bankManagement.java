@@ -133,8 +133,7 @@ public class bankManagement {
 			System.out.println("Balance : " + accountToRead.getBalance());
 			
 			//Display the owner's information
-			users
-			.stream()
+			users.stream()
 			.filter(user->user.getId()==accountToRead.getOwnerId())
 			.forEach(user->System.out.println("Owner  : "+user.getFirstname() + " " +user.getLastname() + " - owner id : "+ user.getId() ));;
 		}

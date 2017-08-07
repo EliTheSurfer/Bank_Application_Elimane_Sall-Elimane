@@ -42,5 +42,14 @@ public class accountTest {
 
 	}
 
+	@Test
+	public void testAccountCompleteConstructor() throws Exception {
+		account testAccount =new account((long)1,(long)1,10.0,new Date());
+		assertSame(testAccount.getId(),(long)1);
+		assertSame(testAccount.getOwnerId(),(long)1);
+		assertEquals(testAccount.getBalance(),10.0,0);
+		
+	}
+
 
 }
