@@ -14,7 +14,26 @@ public class account {
 	private double balance;
 	private Date creationDate = new Date();
 	
+	/**
+	 * Complete account constructor
+	 * @param id
+	 * @param ownerId
+	 * @param balance
+	 * @param creationDate
+	 */
+	public account(Long id, Long ownerId, double balance, Date creationDate) {
+		this.id = id;
+		this.ownerId = ownerId;
+		this.balance = balance;
+		this.creationDate = creationDate;
+	}
 
+	/**
+	 * Default constructor
+	 */
+	public account() {
+		//Auto-generated constructor stub
+	}
 
 	/**
 	 * This function  returns the account's id
