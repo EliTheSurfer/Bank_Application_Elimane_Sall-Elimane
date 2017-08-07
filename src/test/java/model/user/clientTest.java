@@ -46,6 +46,8 @@ public class clientTest {
 	public void testWithdrawFromAnotherAccount() throws Exception {
 		//Jobs can't withdraw money from Wozniak's account
 		steveJobs.withdraw(WozniakAccount, 0);
+		steveJobs.getHistory();
+
 	}
 
 	@Test
@@ -53,6 +55,8 @@ public class clientTest {
 		steveJobs.deposit(JobsAccount, 500);
 		//Previously Jobs had 1500 on his account , then he added 500 so now we will have 2000 on his account balance
 		assertEquals("The deposit didn't work ",JobsAccount.getBalance(),2000,0);
+		steveJobs.getHistory();
+
 	}
 
 	@Test

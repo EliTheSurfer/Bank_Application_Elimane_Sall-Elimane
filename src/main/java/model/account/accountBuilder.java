@@ -52,7 +52,10 @@ public class accountBuilder {
     		this.balance = newBalance;
     		return this;
     }
-    
+    /**
+     * this function build an account with this class data
+     * @return
+     */
     public account build() {
 	    	if (balance < 0) { 
 	

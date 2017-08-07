@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import model.account.*;
+import model.operation.operation;
 /**
  * 
  * @author Elimane Sall
@@ -18,6 +19,7 @@ public class client {
 	final Logger logger = LoggerFactory.getLogger(client.class);
 
 	public List<account> usersaccounts = new ArrayList<account>();
+	public List<operation> usersOperations = new ArrayList<operation>();
 	
 	/**
 	 * This function allows to user to withdraw money from one of his accounts
@@ -39,6 +41,8 @@ public class client {
 		//If there is no problem with the security check , the bank allows the withdrawal opertation
 		logger.info("Withdrawing " + withdrawalAmount);
 		currentAccount.setBalance(currentAccount.getBalance()-withdrawalAmount);
+		//Update the user's operation history
+		usersOperations.add(new operation("withdraw", withdrawalAmount, currentAccount.getBalance()));
 	}
 	
 	/**
@@ -54,7 +58,10 @@ public class client {
 		
 		//If there is no problem with the security control the bank can do the operation
 		logger.info("Desposit : " + depositAmount );
-		currentAccount.setBalance(currentAccount.getBalance()+depositAmount);		
+		currentAccount.setBalance(currentAccount.getBalance()+depositAmount);	
+		//Update the user's operation history
+		usersOperations.add(new operation("deposit", depositAmount, currentAccount.getBalance()));
+
 	}
 	
 	/**
@@ -71,6 +78,16 @@ public class client {
 		}
 		logger.info("The global balance is : " + wealth);
 		return wealth;
+	}
+	
+	/**
+	 * Simple fonction d'affichage de l'historique des operations de l'utilisateur
+	 */
+	public void getHistory() {
+		this.usersOperations.forEach(operation ->
+			System.out.print("Operation  : " + operation.getOperationName() + " - Date : " + operation.getOperationDate()+ " - Amount : "+ operation.getOperationAmount() +" - Balance :" + operation.getAccountsBalance() )
+		);
+							
 	}
 
 
